@@ -1,41 +1,57 @@
-
-
 import 'package:flutter/material.dart';
 
+
 class Menu extends StatelessWidget {
-  const Menu({super.key});
+   Menu({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Container(
-      child: LayoutBuilder(
-             builder: (context, constraints) {
-            print(constraints.maxWidth);
-            if(constraints.minWidth<600){
-              return  const Row(
-            children: [
-              Text("data 1"),
-              Text("data 2"),
-              Text("data 3"),
-              Text("data 4"),
-            ],
-          );
+    return LayoutBuilder(builder: (context,constraints){
       
-            }
-            else{
-              return  const Column(
-            children: [
-              Text("data 10"),
-              Text("data 20"),
-              Text("data 30"),
-              Text("data 40"),
-            ],
-          );
-            }
-          },
-        ),
-      ),
-    );
-  }
+      print(constraints.maxWidth);
+      return constraints.maxWidth>600
+                ?Container(
+                  color: Colors.indigo,
+                  child: Row(   
+                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,       
+                    
+                  children: _listado(),
+                       ),
+                )
+                :Container(
+                  color: Colors.green,
+                  child: Column(     
+                    mainAxisAlignment:MainAxisAlignment.start,         
+                  children: _listado(),
+                  ),
+                );
+    });
+               
+               }
+
+}
+
+
+
+List<Widget>_listado (){
+
+return [
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("data 1",style: TextStyle(fontSize: 20)),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("data 2",style: TextStyle(fontSize: 20),),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("data 3",style: TextStyle(fontSize: 20),),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("data 4",style: TextStyle(fontSize: 20),),
+                ),
+              ];
+
 }

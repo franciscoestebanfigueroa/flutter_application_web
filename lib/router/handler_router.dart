@@ -6,7 +6,7 @@ import 'package:flutter_application_web/view/menu.dart';
 
 
 final Handler handler = Handler(handlerFunc: (context, parameters) {
-  return Home();
+  return  Home(child: Menu(),);
 });
 
 final Handler handlermenu = Handler(handlerFunc: (context, parameters) {
