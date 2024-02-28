@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class PageUno extends StatelessWidget {
-  const PageUno({super.key});
+class Viewtres extends StatelessWidget {
+  const Viewtres({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: Colors.orange,
     );
   }
 }

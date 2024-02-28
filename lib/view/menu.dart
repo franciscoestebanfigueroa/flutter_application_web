@@ -1,4 +1,6 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_web/router/handler_router.dart';
 
 
 class Menu extends StatelessWidget {
@@ -6,23 +8,23 @@ class Menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context,constraints){
+    return LayoutBuilder(builder: (_,constraints){
       
       print(constraints.maxWidth);
-      return constraints.maxWidth>600
+      return constraints.maxWidth<600
                 ?Container(
                   color: Colors.indigo,
                   child: Row(   
                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,       
                     
-                  children: _listado(),
+                  children: _listado(context),
                        ),
                 )
                 :Container(
                   color: Colors.green,
                   child: Column(     
-                    mainAxisAlignment:MainAxisAlignment.start,         
-                  children: _listado(),
+                    mainAxisAlignment:MainAxisAlignment.spaceAround,         
+                  children: _listado(context),
                   ),
                 );
     });
@@ -33,24 +35,27 @@ class Menu extends StatelessWidget {
 
 
 
-List<Widget>_listado (){
+List<Widget>_listado (BuildContext context){
 
 return [
-                const Padding(
+                GestureDetector(
+                  child: const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text("data 1",style: TextStyle(fontSize: 20)),
+                  child: Text("Page 1",style: TextStyle(fontSize: 20)),
+                  ),
+                  onTap: () => FluroRouter().navigateTo(context, "/:home"),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text("data 2",style: TextStyle(fontSize: 20),),
+                  child: Text("Page 2",style: TextStyle(fontSize: 20),),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text("data 3",style: TextStyle(fontSize: 20),),
+                  child: Text("Page 3",style: TextStyle(fontSize: 20),),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text("data 4",style: TextStyle(fontSize: 20),),
+                  child: Text("Page 4",style: TextStyle(fontSize: 20),),
                 ),
               ];
 
