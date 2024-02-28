@@ -7,7 +7,7 @@ class ViewUno extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        color: Colors.green,
+        color: Colors.grey,
       ),
     );
   }
