@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: double.infinity,
+        width:double.infinity,
         height: double.infinity,
         color: Colors.pink,
         child: Padding(
@@ -27,13 +27,13 @@ class Home extends StatelessWidget {
                     ? Column(
                         children: [
                           Menu(),
-                          child,
+                          Expanded(child: child),
                         ],
                       )
                     : Row(
                         children: [
                           Menu(),
-                          child,
+                          Expanded(child: child),
                         ],
                       );
               },

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_web/locator.dart';
 import 'package:flutter_application_web/nevigator_service.dart';
+import 'package:flutter_application_web/pages/home.dart';
 import 'package:flutter_application_web/router/handler_router.dart';
 
 void main() {
@@ -25,12 +26,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/home",
+      initialRoute: "/viewdos",
       onGenerateRoute: (settings) => FlutterRouter.router.generator(settings),
       navigatorKey: locator<NavigationService>()
           .navegarKey, //busca una instancia de tipo navigationservive
       builder: (context, child) {
-        return child ?? Container();
+        return Home(child: child ?? Container());
       },
     );
   }

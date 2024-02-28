@@ -5,8 +5,10 @@ class Viewtres extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.orange,
+    return Expanded(
+      child: Container(
+        color: Colors.orange,
+      ),
     );
   }
 }
