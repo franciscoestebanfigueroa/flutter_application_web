@@ -1,11 +1,9 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_web/locator.dart';
 import 'package:flutter_application_web/nevigator_service.dart';
-import 'package:flutter_application_web/router/handler_router.dart';
 
 class Menu extends StatelessWidget {
-  Menu({super.key});
+  const Menu({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +11,14 @@ class Menu extends StatelessWidget {
       print("me dibujo");
       return constraints.maxWidth < 600
           ? Container(
-              color: Colors.indigo,
+              //color: Colors.indigo,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: _listado(context),
               ),
             )
           : Container(
-              color: Colors.green,
+             // color: Colors.green,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: _listado(context),
@@ -49,18 +47,24 @@ List<Widget> _listado(BuildContext context) {
         ),
       ),
     ),
-    const Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Text(
-        "Page 3",
-        style: TextStyle(fontSize: 20),
+    GestureDetector(
+      onTap: () => locator<NavigationService>().navegarTo("/viewtres"),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Text(
+          "Page 3",
+          style: TextStyle(fontSize: 20),
+        ),
       ),
     ),
-    const Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Text(
-        "Page 4",
-        style: TextStyle(fontSize: 20),
+    GestureDetector(
+      onTap: () => locator<NavigationService>().navegarTo("cualquiera"),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Text(
+          "Page 4",
+          style: TextStyle(fontSize: 20),
+        ),
       ),
     ),
   ];

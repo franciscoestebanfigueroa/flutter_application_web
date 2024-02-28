@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_web/shared/gradiente.dart';
 
 class ViewDos extends StatelessWidget {
   const ViewDos({super.key});
@@ -7,7 +8,10 @@ class ViewDos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        color: Colors.blue,
+        decoration: const BoxDecoration(
+          gradient: gradient1
+        ),
+        //color: Colors.blue,
       ),
     );
   }

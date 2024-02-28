@@ -6,8 +6,11 @@ class ViewCuatro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        color: Colors.indigo,
+      child: Center(
+        child: Container(
+          //color: Colors.indigo,
+          child: const Text("404",style: TextStyle(fontSize: 30),),
+        ),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_application_web/view/menu.dart';
 //el kisweb me dice si estoy en web me sirve para cambiar trasnsicion en movil o web
 
@@ -19,20 +18,20 @@ class Home extends StatelessWidget {
         height: double.infinity,
         color: Colors.pink,
         child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 8.0),
             child: LayoutBuilder(
               builder: (context, constraints) {
                 print(constraints.minWidth);
                 return constraints.maxWidth < 600
                     ? Column(
                         children: [
-                          Menu(),
+                          const Menu(),
                           Expanded(child: child),
                         ],
                       )
                     : Row(
                         children: [
-                          Menu(),
+                          const Menu(),
                           Expanded(child: child),
                         ],
                       );
