@@ -5,6 +5,7 @@ import 'package:flutter_application_web/view/view_1.dart';
 import 'package:flutter_application_web/view/view_2.dart';
 import 'package:flutter_application_web/view/view_3.dart';
 import 'package:flutter_application_web/view/view_4.dart';
+import 'package:flutter_application_web/view/view_404.dart';
 
 final Handler handlerUno = Handler(handlerFunc: (context, parameters) {
   return  const ViewUno();
@@ -30,10 +31,10 @@ class FlutterRouter {
 
     router.define("/viewtres", handler: handlerTres,transitionType: TransitionType.fadeIn);
 
-    
+    router.define("/viewcuatro",handler:Handler(handlerFunc: (context, parameters) => const ViewCuatro(),),transitionType: TransitionType.fadeIn );
 
     router.notFoundHandler = Handler(handlerFunc: (context, parameters) {
-      return const  ViewCuatro();
+      return const  ViewCuatroCeroCuatro();
     },);
   }
 }

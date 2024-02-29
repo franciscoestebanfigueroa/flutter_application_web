@@ -30,42 +30,45 @@ class Menu extends StatelessWidget {
 
 List<Widget> _listado(BuildContext context) {
   return [
-    GestureDetector(
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text("Page 1", style: TextStyle(fontSize: 20)),
-      ),
-      onTap: () => locator<NavigationService>().navegarTo("/viewuno"),
+    Botones(
+      nameButtom: "Page 1",
+      path: "/viewuno",      
     ),
-    GestureDetector(
-      onTap: () => locator<NavigationService>().navegarTo("/viewdos"),
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text(
-          "Page 2",
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+    Botones(
+      nameButtom: "Page 2",
+      path: "/viewdos",      
     ),
-    GestureDetector(
-      onTap: () => locator<NavigationService>().navegarTo("/viewtres"),
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text(
-          "Page 3",
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+    Botones(
+      nameButtom: "Page 3",
+      path: "/viewtres",      
     ),
-    GestureDetector(
-      onTap: () => locator<NavigationService>().navegarTo("cualquiera"),
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text(
-          "Page 4",
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+    Botones(
+      nameButtom: "Page 4",
+      path: "/viewcuatro",      
     ),
   ];
+}
+
+class Botones extends StatelessWidget {
+  final String nameButtom;
+  final String path;
+  //Function function;
+
+   Botones({
+    super.key,
+    required this.nameButtom,
+    required this.path,
+  //  required this.function
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child:  Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(nameButtom, style: const TextStyle(fontSize: 20)),
+      ),
+      onTap: () => locator<NavigationService>().navegarTo(path),
+    );
+  }
 }
