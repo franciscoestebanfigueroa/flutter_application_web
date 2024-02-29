@@ -1,13 +1,15 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_web/locator.dart';
 import 'package:flutter_application_web/nevigator_service.dart';
+import 'package:flutter_application_web/router/handler_router.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (_, constraints) {
+    return LayoutBuilder(builder: (context, constraints) {
       print("me dibujo");
       return constraints.maxWidth < 600
           ? Container(
@@ -18,7 +20,7 @@ class Menu extends StatelessWidget {
               ),
             )
           : Container(
-             // color: Colors.green,
+              // color: Colors.green,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: _listado(context),
@@ -31,20 +33,24 @@ class Menu extends StatelessWidget {
 List<Widget> _listado(BuildContext context) {
   return [
     Botones(
+      context: context,
       nameButtom: "Page 1",
-      path: "/viewuno",      
+      path: "/viewuno",
     ),
     Botones(
+      context: context,
       nameButtom: "Page 2",
-      path: "/viewdos",      
+      path: "/viewdos",
     ),
     Botones(
+      context: context,
       nameButtom: "Page 3",
-      path: "/viewtres",      
+      path: "/viewtres",
     ),
     Botones(
+      context: context,
       nameButtom: "Page 4",
-      path: "/viewcuatro",      
+      path: "/viewcuatro",
     ),
   ];
 }
@@ -52,23 +58,27 @@ List<Widget> _listado(BuildContext context) {
 class Botones extends StatelessWidget {
   final String nameButtom;
   final String path;
+  BuildContext context;
   //Function function;
 
-   Botones({
+  Botones({
     super.key,
     required this.nameButtom,
     required this.path,
-  //  required this.function
+    required this.context,
+    //  required this.function
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child:  Padding(
+      child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(nameButtom, style: const TextStyle(fontSize: 20)),
       ),
-      onTap: () => locator<NavigationService>().navegarTo(path),
+      // onTap: () => locator<NavigationService>().navegarTo(path),
+      //onTap: () => FlutterRouter.router.navigateTo(context, path),
+      onTap: () => FlutterRouter.router.navigateTo(context, path),
     );
   }
 }

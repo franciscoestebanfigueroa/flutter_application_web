@@ -6,15 +6,15 @@ class Home extends StatelessWidget {
   final Widget child;
 
   const Home({
-    super.key,
+    Key? key,
     required this.child,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width:double.infinity,
+        width: double.infinity,
         height: double.infinity,
         color: Colors.pink,
         child: Padding(

@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    setupLocator(); //crea una unica instancia para que no se dupliquen los key
+    //setupLocator(); //crea una unica instancia para que no se dupliquen los key
     FlutterRouter.configuracionRouter();
     super.initState();
   }
@@ -27,9 +27,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: "/viewdos",
-      onGenerateRoute: (settings) => FlutterRouter.router.generator(settings),
-      navigatorKey: locator<NavigationService>()
-          .navegarKey, //busca una instancia de tipo navigationservive
+      onGenerateRoute: FlutterRouter.router.generator,
+      // navigatorKey: locator<NavigationService>()
+      //     .navegarKey, //busca una instancia de tipo navigationservive
       builder: (context, child) {
         return Home(child: child ?? Container());
       },
