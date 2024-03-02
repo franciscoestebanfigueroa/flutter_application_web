@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_web/locator.dart';
 import 'package:flutter_application_web/nevigator_service.dart';
 import 'package:flutter_application_web/router/handler_router.dart';
+import 'package:flutter_application_web/singlenton/my_singlenton.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -72,13 +73,13 @@ class Botones extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(nameButtom, style: const TextStyle(fontSize: 20)),
-      ),
-      // onTap: () => locator<NavigationService>().navegarTo(path),
-      //onTap: () => FlutterRouter.router.navigateTo(context, path),
-      onTap: () => FlutterRouter.router.navigateTo(context, path),
-    );
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(nameButtom, style: const TextStyle(fontSize: 20)),
+        ),
+        // onTap: () => locator<NavigationService>().navegarTo(path),
+        //onTap: () => FlutterRouter.router.navigateTo(context, path),
+        //onTap: () => FlutterRouter.router.navigateTo(context, path),
+        onTap: () => MySinglenton.superNavegatTo(path));
   }
 }
