@@ -1,8 +1,4 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_web/locator.dart';
-import 'package:flutter_application_web/nevigator_service.dart';
-import 'package:flutter_application_web/router/handler_router.dart';
 import 'package:flutter_application_web/singlenton/my_singlenton.dart';
 
 class Menu extends StatelessWidget {
@@ -80,6 +76,8 @@ class Botones extends StatelessWidget {
         // onTap: () => locator<NavigationService>().navegarTo(path),
         //onTap: () => FlutterRouter.router.navigateTo(context, path),
         //onTap: () => FlutterRouter.router.navigateTo(context, path),
-        onTap: () => MySinglenton.superNavegatTo(path));
+        onTap: () => MySinglenton().goToNameNavigatorPancho(path)
+    
+    );
   }
 }

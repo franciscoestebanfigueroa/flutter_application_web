@@ -12,7 +12,7 @@ class ViewCuatro extends StatelessWidget {
       child: Center(
         child: Container(
           color: Colors.indigo,
-          //child:PageCustomView()
+          child:PageCustomView()
         ),
       ),
     );
@@ -36,11 +36,12 @@ class _PageCustomViewState extends State<PageCustomView> {
   @override
   Widget build(BuildContext context) {
     return PageView(
+      scrollDirection: Axis.vertical,
       children: const [
-        ViewCuatro(),
+        
+        ViewUno(),
         ViewDos(),
         ViewTres(),
-        ViewUno(),
       ],
     );
   }

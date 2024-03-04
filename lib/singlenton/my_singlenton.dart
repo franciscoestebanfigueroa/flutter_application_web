@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
 
 class MySinglenton {
-  late GlobalKey<NavigatorState> _globalKey;
 
-  MySinglenton._() {
-    _globalKey = GlobalKey<NavigatorState>();
-    print("creo unica instancia");
-  }
-  static final MySinglenton _instancia = MySinglenton._();
+static final MySinglenton _instancia = MySinglenton._();
+static GlobalKey<NavigatorState> globalKey = GlobalKey<NavigatorState>();
 
-  static MySinglenton instancia() {
-    return _instancia;
-  }
-
-  static Future superNavegatTo(String routeName) {
-    return _instancia._globalKey.currentState!.pushNamed(routeName);
-  }
-
-  GlobalKey<NavigatorState> key() {
-    return _instancia._globalKey;
-  }
+factory MySinglenton(){
+  print("por aca instancio la clase..no puedo ver el contructor privado");
+  return _instancia;
 }
+MySinglenton._(){
+  print("constructor privado");
+} //constructor privado..
+
+
+Future goToNameNavigatorPancho(String path){
+  return globalKey.currentState!.pushNamed(path);
+}
+
+
+
+
+
+
+}
+
+
+
+
+
+

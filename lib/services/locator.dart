@@ -4,6 +4,5 @@ import 'package:get_it/get_it.dart';
 GetIt locator = GetIt.instance;
 
 void setupLocator() {
-  locator.registerLazySingleton(() =>
-      NavigationService()); //creo una instancia como un singlenton de navigationservice
+  locator.registerLazySingleton(() => NavigationService()); //creo una instancia como un singlenton de navigationservice
 }
